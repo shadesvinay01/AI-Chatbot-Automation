@@ -24,27 +24,6 @@
 
 ---
 
-## 📂 Project Structure
-```text
-baatai/
-├── main.py              # FastAPI Entry Point
-├── config.py            # API Keys & Configuration
-├── database.py          # Client & Business Database
-├── rag/
-│   └── vector_store.py  # ChromaDB & Embedding Logic
-├── webhooks/
-│   └── whatsapp.py      # WhatsApp Webhook & AI Generation
-├── scripts/
-│   ├── ingest_data.py   # PDF/Text Bulk Processor
-│   └── test_mock_msg.py # Local Webhook Testing Utility
-├── templates/
-│   └── admin.html       # Premium Admin Dashboard
-└── utils/
-    └── prompts.py       # Centralized System Prompts
-```
-
----
-
 ## 🚀 Quick Start
 
 ### 1. Clone the repository
