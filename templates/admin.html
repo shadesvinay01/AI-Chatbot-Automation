@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaatAI | Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0b10;
+            --card-bg: #161821;
+            --accent: #6366f1;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --success: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .header p { color: var(--text-dim); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        h2 { margin-bottom: 1.5rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+
+        .client-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .stat-val { font-size: 1.5rem; font-weight: 600; color: var(--accent); }
+        .stat-label { font-size: 0.8rem; color: var(--text-dim); }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">BaatAI Alpha</div>
+        <div class="user">Admin @ Root</div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Welcome back, Chief.</h1>
+            <p>Your AI agents are currently serving 12 active customers.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-val">842</div>
+                <div class="stat-label">Messages Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">1.2s</div>
+                <div class="stat-label">Avg. Latency</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">98%</div>
+                <div class="stat-label">AI Accuracy</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Active Clients</h2>
+                <div id="client-list">
+                    <div class="client-item">
+                        <div>
+                            <strong>XYZ Restaurant</strong><br>
+                            <small style="color: var(--text-dim)">+91 98765 43210</small>
+                        </div>
+                        <span class="status-dot"></span>
+                    </div>
+                    <div class="client-item">
+                        <div>
+                            <strong>Mumbai Gym</strong><br>
+                            <small style="color: var(--text-dim)">+91 91234 56789</small>
+                        </div>
+                        <span class="status-dot"></span>
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 1rem; width: 100%;">+ Register New Client</button>
+            </div>
+
+            <div class="card">
+                <h2>Knowledge Ingestion</h2>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.5rem;">
+                    Upload raw text to the client's brain.
+                </p>
+                <form>
+                    <input type="text" placeholder="Client ID (e.g. demo_restaurant)">
+                    <textarea rows="5" placeholder="Paste business knowledge here..."></textarea>
+                    <button class="btn" style="width: 100%;">Sync Knowledge</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
