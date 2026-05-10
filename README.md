@@ -16,7 +16,7 @@
 
 ## 🛠️ Tech Stack
 - **Backend**: FastAPI (Python)
-- **AI Model**: Llama 3.1-70B via Groq
+- **AI Model**: Llama 3.1-70B 
 - **Vector Database**: ChromaDB
 - **Embeddings**: HuggingFace (All-MiniLM-L6-v2)
 - **Frontend**: Vanilla HTML5, CSS3 (Premium Aesthetics), JavaScript
